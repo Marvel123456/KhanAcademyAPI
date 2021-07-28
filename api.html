@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+        
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+
+        	
+        	body {        		
+        	  font-family:"oxygen";
+        		font-size:19px;
+        		color:green;
+        	}
+        	
+        	img {
+        		background:rgb(242, 242, 242);
+        		border-radius:10px;
+        	}
+        	
+        	#p {
+        		color:rgb(37, 140, 158);
+        	}
+        	
+        </style>
+    </head>
+    <body>
+
+		<div id='i'></div>
+		<div id='p'></div>
+		<div id='o'></div>
+		<div id='q'></div>
+
+    </body>
+    
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        
+        // user info
+	   	$.getJSON("https://www.khanacademy.org/api/internal/user/profile?username=YoSoyL0k1&format=pretty.json",function(data){
+	   		var img = data.avatarSrc;
+	    	document.getElementById("i").innerHTML = "Energy points - " + data.points + "<br> Avatar - " + data.avatarName + "<br> " + data.kaid + "<br>" + data.bio + "<br>" + "<img src = '" + img + "' width='90'> <br>" + data.username;
+		});
+		// program information
+		$.getJSON('https://www.khanacademy.org/api/internal/show_scratchpad?scratchpad_id=4582324946550784&callback=?', function(data) {
+			var ds = data.scratchpad;
+			var a = ds.url;
+			var im = ds.imageUrl;
+			document.getElementById("p").innerHTML = "<br>" + ds.title + "<br> Spin-offs: " + ds.spinoffCount + "<br>Program id: " + ds.id + "<br> votes: " + ds.sumVotesIncremented + "<br><a href='" + a + "'>Link</a>" + "<br><img src='" + im + "'>";
+		});
+		
+		/* 
+		
+		var APIThread=document.getElementById("q");
+		
+		$.getJSON("https://www.khanacademy.org/api/internal/discussions/ag5zfmtoYW4tYWNhZGVteXJpCxIIVXNlckRhdGEiRnVzZXJfaWRfa2V5X2h0dHA6Ly9pZC5raGFuYWNhZGVteS5vcmcvZDBkMTc2ZDg0Yjg2NGNkNDlmNmQ0Nzc3NzdlZGRkZjUMCxIIRmVlZGJhY2sYgIC91Yyh2wkM/replies?format=pretty&callback=?", function(data) {
+                
+                for(var i = 0; i < data.length; i++) {
+                    
+                    var element = document.createElement("h2");
+                    var link = data[i].expandKey;
+                    element.innerHTML = "<a href='https://www.khanacademy.org/computer-programming/dihydrogen-monoxide/6102683642445824?qa_expand_key=" + link + "'>Link</a>" +"<br>" + data[i].content;
+                    
+                    
+                    APIThread.appendChild(element);
+                }
+            });
+            
+            */
+
+    </script>
+
+</html>
