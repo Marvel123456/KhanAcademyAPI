@@ -1,2 +1,2 @@
-# KhanAcademyAPI
+# khan academy
 api
