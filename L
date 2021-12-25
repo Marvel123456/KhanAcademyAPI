@@ -1,0 +1,8 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+https://www.khanacademy.org/api/internal/discussions/*i*/replies?format=pretty&callback=?
+https://www.khanacademy.org/api/internal/show_scratchpad?scratchpad_id=*i*&callback=?
+
+$.getJSON("", function(data) {});
+
+https://www.khanacademy.org/computer-programming/new-webpage/4957618316460032
